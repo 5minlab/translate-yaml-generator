@@ -2,7 +2,7 @@
 
 require 'yaml'
 
-module I18nYamlGenerator
+module TranslateYamlGenerator
   module Writer
     class BaseWriter
       attr_accessor :locale_idx, :locale

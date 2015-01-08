@@ -1,6 +1,6 @@
 # encoding: utf-8
 
-module I18nYamlGenerator
+module TranslateYamlGenerator
   class Record
     INDEX_NAMESPACE = 0
     INDEX_NAME = 1
@@ -79,20 +79,20 @@ module I18nYamlGenerator
       end
 
       if token_list.length == 1
-        node = I18nYamlGenerator::Node.new child_name
+        node = TranslateYamlGenerator::Node.new child_name
         self << node
         return node
       else
-        node = I18nYamlGenerator::Node.new child_name
+        node = TranslateYamlGenerator::Node.new child_name
         self << node
         node.find_child! next_ns
       end
     end
 
     def <<(item)
-      if item.is_a? I18nYamlGenerator::Record
+      if item.is_a? TranslateYamlGenerator::Record
         add_record item
-      elsif item.is_a? I18nYamlGenerator::Node
+      elsif item.is_a? TranslateYamlGenerator::Node
         add_child item
       else
         raise ArgumentError, "not valid type"

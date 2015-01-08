@@ -3,18 +3,18 @@
 require "yaml"
 require "fileutils"
 
-module I18nYamlGenerator
+module TranslateYamlGenerator
   def self.run(data_filename, config_filename)
     config_content = File.read config_filename
     config = YAML.load(config_content)
 
-    reader = I18nYamlGenerator::Reader::XlsxReader.new
+    reader = TranslateYamlGenerator::Reader::XlsxReader.new
     root = reader.read data_filename
 
     base_dir = File.dirname(data_filename)
 
     config["languages"].each_with_index do |data, idx|
-      writer = I18nYamlGenerator::Writer::YamlWriter.new
+      writer = TranslateYamlGenerator::Writer::YamlWriter.new
       writer.locale = data["lang"]
       writer.locale_idx = idx
 
@@ -39,8 +39,8 @@ module I18nYamlGenerator
       run data_filename, config_filename
     else
       puts <<eos
-Usage: #{$0} <i18n excel> <config yaml>
-i18n excel : Internationalization Excel File (extension: xlsx)
+Usage: #{$0} <translate excel> <config yaml>
+translate excel : Internationalization Excel File (extension: xlsx)
 config yaml : Configuration File (extension: yml)
 eos
     end

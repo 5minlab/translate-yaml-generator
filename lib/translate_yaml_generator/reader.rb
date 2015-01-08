@@ -3,11 +3,11 @@
 require "rubyXL"
 require_relative "core"
 
-module I18nYamlGenerator
+module TranslateYamlGenerator
   module Reader
     class BaseReader
       def build_tree(records)
-        root = I18nYamlGenerator::Node.new
+        root = TranslateYamlGenerator::Node.new
         records.each do |r|
         node = root.find_child! r.namespace
           node << r
@@ -52,7 +52,7 @@ module I18nYamlGenerator
             rowdata << item_cell.value
           end
 
-          record = I18nYamlGenerator::Record.new rowdata
+          record = TranslateYamlGenerator::Record.new rowdata
           records << record
         end
 

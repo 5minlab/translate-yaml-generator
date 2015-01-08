@@ -1,9 +1,9 @@
-# i18n YAML Generator
+# Translate YAML Generator
 
-[![Build Status](https://travis-ci.org/5minlab/i18n-yaml-generator.svg?branch=master)](https://travis-ci.org/5minlab/i18n-yaml-generator)
+[![Build Status](https://travis-ci.org/5minlab/translate-yaml-generator.svg?branch=master)](https://travis-ci.org/5minlab/translate-yaml-generator)
 
 
-Generate locale yaml from i18n excel file.
+Generate translated yaml from i18n excel file.
 
 
 ## Install
@@ -14,14 +14,14 @@ bundle install
 
 ## Usage
 ```bash
-Usage: ./lib/i18n_yaml_generator.rb <i18n excel> <config yaml>
-i18n excel : Internationalization Excel File (extension: xlsx)
+Usage: ./lib/translate_yaml_generator.rb <translate data excel> <config yaml>
+i18n excel : Excel File for Translate Data (extension: xlsx)
 config yaml : Configuration File (extension: yml)
 ```
 
 ### Sample
 ```bash
-./lib/i18n_yaml_generator.rb data/sample-1.xlsx data/sample-1.yml
+./lib/translate_yaml_generator.rb data/sample-1.xlsx data/sample-1.yml
 ```
 
 

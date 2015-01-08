@@ -1,6 +1,6 @@
 # encoding: utf-8
 
-require "i18n_yaml_generator/reader"
+require "translate_yaml_generator/reader"
 
 def get_data_file filename
   root_path = __FILE__
@@ -8,8 +8,8 @@ def get_data_file filename
   File.join(root_path, "data", filename)
 end
 
-describe I18nYamlGenerator::Reader::XlsxReader do
-  let(:reader) { I18nYamlGenerator::Reader::XlsxReader.new }
+describe TranslateYamlGenerator::Reader::XlsxReader do
+  let(:reader) { TranslateYamlGenerator::Reader::XlsxReader.new }
 
   describe "#read" do
     it "not valid xlsx extension" do

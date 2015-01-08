@@ -1,11 +1,11 @@
 # encoding: utf-8
 
-require "i18n_yaml_generator/core"
+require "translate_yaml_generator/core"
 
-describe I18nYamlGenerator::Record do
+describe TranslateYamlGenerator::Record do
   describe "#item" do
     let(:row) { ["ns", "name", "english", "한국어"] }
-    let(:record) { I18nYamlGenerator::Record.new row }
+    let(:record) { TranslateYamlGenerator::Record.new row }
 
     it "valid index" do
       expect(record.item 0).to eq("english")
@@ -22,16 +22,16 @@ describe I18nYamlGenerator::Record do
     let(:row) { ["", "name"] }
 
     it "empty language data" do
-      expect { I18nYamlGenerator::Record.new row }.to raise_error(ArgumentError)
+      expect { TranslateYamlGenerator::Record.new row }.to raise_error(ArgumentError)
     end
   end
 end
 
 
-describe I18nYamlGenerator::Node do
-  let(:root) { I18nYamlGenerator::Node.new "" }
-  let(:child) { I18nYamlGenerator::Node.new "child" }
-  let(:record) { I18nYamlGenerator::Record.new ["ns", "name", "english", "한국어"] }
+describe TranslateYamlGenerator::Node do
+  let(:root) { TranslateYamlGenerator::Node.new "" }
+  let(:child) { TranslateYamlGenerator::Node.new "child" }
+  let(:record) { TranslateYamlGenerator::Record.new ["ns", "name", "english", "한국어"] }
 
   describe "#add_child" do
     it "add child node" do
@@ -54,7 +54,7 @@ describe I18nYamlGenerator::Node do
 
   describe "#fullname" do
     it "get fulllname" do
-      node = I18nYamlGenerator::Node.new "node"
+      node = TranslateYamlGenerator::Node.new "node"
       child << node
 
       expect(root.fullname).to eq("")

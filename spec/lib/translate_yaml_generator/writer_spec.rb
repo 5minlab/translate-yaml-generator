@@ -1,7 +1,7 @@
 # encoding: utf-8
 
-require "i18n_yaml_generator/writer"
-require "i18n_yaml_generator/core"
+require "translate_yaml_generator/writer"
+require "translate_yaml_generator/core"
 
 
 def get_data_file filename
@@ -11,13 +11,13 @@ def get_data_file filename
 end
 
 
-describe I18nYamlGenerator::Writer::HashWriter do
-  let(:writer) { I18nYamlGenerator::Writer::HashWriter.new }
+describe TranslateYamlGenerator::Writer::HashWriter do
+  let(:writer) { TranslateYamlGenerator::Writer::HashWriter.new }
 
   describe "#write" do
     it "use data" do
       filename = get_data_file "sample-1.xlsx"
-      reader = I18nYamlGenerator::Reader::XlsxReader.new
+      reader = TranslateYamlGenerator::Reader::XlsxReader.new
       root = reader.read filename
       actual = writer.write root
       expected = {
@@ -50,8 +50,8 @@ describe I18nYamlGenerator::Writer::HashWriter do
 end
 
 
-describe I18nYamlGenerator::Writer::LineWriter do
-  let(:writer) { I18nYamlGenerator::Writer::LineWriter.new }
+describe TranslateYamlGenerator::Writer::LineWriter do
+  let(:writer) { TranslateYamlGenerator::Writer::LineWriter.new }
 
   describe "#locale_idx" do
     it "get/set" do
@@ -64,7 +64,7 @@ describe I18nYamlGenerator::Writer::LineWriter do
   describe "#write" do
     it "use data" do
       filename = get_data_file "sample-1.xlsx"
-      reader = I18nYamlGenerator::Reader::XlsxReader.new
+      reader = TranslateYamlGenerator::Reader::XlsxReader.new
       root = reader.read filename
 
       actual = writer.write root
@@ -86,13 +86,13 @@ describe I18nYamlGenerator::Writer::LineWriter do
 end
 
 
-describe I18nYamlGenerator::Writer::YamlWriter do
-  let(:writer) { I18nYamlGenerator::Writer::YamlWriter.new }
+describe TranslateYamlGenerator::Writer::YamlWriter do
+  let(:writer) { TranslateYamlGenerator::Writer::YamlWriter.new }
 
   describe "#write" do
     it "use data" do
       filename = get_data_file "sample-1.xlsx"
-      reader = I18nYamlGenerator::Reader::XlsxReader.new
+      reader = TranslateYamlGenerator::Reader::XlsxReader.new
       root = reader.read filename
       actual = writer.write root
       #puts actual
