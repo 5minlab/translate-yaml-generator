@@ -1,4 +1,6 @@
-language:
-  - locale/ko/sample-1.yml
-  - locale/en/sample-1.yml
+languages:
+  - lang: ko
+    file: tmp/ko/sample-1.yml
+  - lang: en
+    file: tmp/en/sample-1.yml
   

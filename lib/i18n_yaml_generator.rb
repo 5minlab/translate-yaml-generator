@@ -1,3 +1,4 @@
+#!/usr/bin/env ruby
 # encoding: utf-8
 
 require_relative "i18n_yaml_generator/core"

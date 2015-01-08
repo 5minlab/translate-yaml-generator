@@ -95,7 +95,7 @@ describe I18nYamlGenerator::Writer::YamlWriter do
       reader = I18nYamlGenerator::Reader::XlsxReader.new
       root = reader.read filename
       actual = writer.write root
-      puts actual
+      #puts actual
     end
   end
 end
