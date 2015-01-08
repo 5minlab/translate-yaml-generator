@@ -3,8 +3,11 @@
 [![Build Status](https://travis-ci.org/5minlab/translate-yaml-generator.svg?branch=master)](https://travis-ci.org/5minlab/translate-yaml-generator)
 
 
-Generate translated yaml from i18n excel file.
+Generate translation yaml from excel file. (for L10N, I18N)
 
+## Feature
+* Manage translation via MS Excel file.
+* Generate YAML Locale file from Excel file.
 
 ## Install
 ```
