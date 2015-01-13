@@ -1,0 +1,28 @@
+= translate-yaml-generator
+
+{<img src="https://travis-ci.org/5minlab/translate-yaml-generator.svg?branch=master" alt="Build Status" />}[https://travis-ci.org/5minlab/translate-yaml-generator]
+
+
+Generate translation yaml from excel file. (for L10N, I18N)
+
+== Feature
+* Manage translation via MS Excel file.
+* Generate YAML Locale file from Excel file.
+
+== Install:
+  gem install bundler
+  bundle install
+
+== Usage:
+  Usage: ./lib/translate_yaml_generator.rb <translate data excel> <config yaml>
+  i18n excel : Excel File for Translate Data (extension: xlsx)
+  config yaml : Configuration File (extension: yml)
+
+=== Sample:
+  ./lib/translate_yaml_generator.rb data/sample-1.xlsx data/sample-1.yml
+
+== Copyright
+
+Copyright (c) 2015 if1live. See LICENSE.txt for
+further details.
+
