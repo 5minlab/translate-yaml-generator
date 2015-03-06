@@ -63,6 +63,10 @@ module TranslateYamlGenerator
           end
         end
 
+        if curr_hash.is_a?(String)
+          msg = "Previous key is used as namespace : #{ns}"
+          raise ArgumentError.new msg
+        end
         curr_hash[record.name] = record.item @locale_idx
       end
     end
