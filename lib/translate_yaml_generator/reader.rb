@@ -37,6 +37,10 @@ module TranslateYamlGenerator
         records = []
 
         worksheet.each_with_index do |row, row_idx|
+          if !row.respond_to?(:[])
+            next
+          end
+
           ns_cell = row[0]
           name_cell = row[1]
 
