@@ -42,6 +42,10 @@ describe TranslateYamlGenerator::Writer::HashWriter do
               "elem_2" => "요소"
             }
           }
+        },
+        "test" => {
+          "empty_key" => "",
+          "list" => ["1","2","3"],
         }
       }
       expect(actual).to eq(expected)
@@ -79,6 +83,8 @@ describe TranslateYamlGenerator::Writer::LineWriter do
                   {:ns=>"foo.bar.spam", :name=>"dummy_2", :value=>"항목"},
                   {:ns=>"foo.bar.menu", :name=>"elem_1", :value=>"일부"},
                   {:ns=>"foo.bar.menu", :name=>"elem_2", :value=>"요소"},
+                  {:ns=>"test", :name=>"empty_key", :value=>""},
+                  {:ns=>"test", :name=>"list", :value=>["1", "2", "3"]},
                  ]
       expect(actual).to eq(expected)
     end

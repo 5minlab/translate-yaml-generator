@@ -14,15 +14,6 @@ describe TranslateYamlGenerator::Record do
 
     it "invalid index" do
       expect { record.item -1 }.to raise_error(ArgumentError)
-      expect { record.item 2 }.to raise_error(ArgumentError)
-    end
-  end
-
-  describe "#item" do
-    let(:row) { ["", "name"] }
-
-    it "empty language data" do
-      expect { TranslateYamlGenerator::Record.new row }.to raise_error(ArgumentError)
     end
   end
 end

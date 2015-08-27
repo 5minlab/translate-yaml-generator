@@ -7,9 +7,8 @@ module TranslateYamlGenerator
     METADATA_FIELD_COUNT = 2
 
     def initialize(row)
-      raise ArgumentError, "No language data inside row" if row.length <= METADATA_FIELD_COUNT
+      raise ArgumentError.new("No language data inside row") if row.length < METADATA_FIELD_COUNT
       @row = row
-
     end
 
     def namespace
@@ -20,9 +19,25 @@ module TranslateYamlGenerator
       @row[INDEX_NAME]
     end
 
-    def item idx
-      raise ArgumentError, "not valid language index" if idx < 0 or idx >= self.count
-      @row[idx + METADATA_FIELD_COUNT]
+    def item(idx)
+      raise ArgumentError.new("Invalid index") if idx < 0
+      raise ArgumentError.new("few elements exist") if @row.length < METADATA_FIELD_COUNT
+
+      val =
+        if idx < 0 or idx >= self.count
+          ""
+        else
+          @row[idx + METADATA_FIELD_COUNT]
+        end
+
+      # is convertable
+      re_array = /^\[(.+)\]$/
+      m = re_array.match val
+      if m
+        val = $1.split(",").map {|x| x.gsub('"', '').strip }
+      end
+
+      val
     end
 
     def count
