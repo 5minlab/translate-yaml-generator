@@ -46,6 +46,7 @@ describe TranslateYamlGenerator::Writer::HashWriter do
         "test" => {
           "empty_key" => "",
           "list" => ["1","2","3"],
+          "newline" => "한\n글",
         }
       }
       expect(actual).to eq(expected)
@@ -85,6 +86,7 @@ describe TranslateYamlGenerator::Writer::LineWriter do
                   {:ns=>"foo.bar.menu", :name=>"elem_2", :value=>"요소"},
                   {:ns=>"test", :name=>"empty_key", :value=>""},
                   {:ns=>"test", :name=>"list", :value=>["1", "2", "3"]},
+                  {:ns=>"test", :name=>"newline", :value=>"한\n글"},
                  ]
       expect(actual).to eq(expected)
     end

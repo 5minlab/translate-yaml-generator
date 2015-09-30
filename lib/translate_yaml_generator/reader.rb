@@ -53,7 +53,7 @@ module TranslateYamlGenerator
           rowdata = ns, name_cell.value
           (2...row.size).each do |col_idx|
             item_cell = row[col_idx]
-            rowdata << item_cell.value
+            rowdata << item_cell.value.gsub("\\n", "\n")
           end
 
           record = TranslateYamlGenerator::Record.new rowdata

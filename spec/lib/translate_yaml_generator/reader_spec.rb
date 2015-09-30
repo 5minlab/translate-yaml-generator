@@ -47,7 +47,7 @@ describe TranslateYamlGenerator::Reader::XlsxReader do
 
       it "test" do
         node = root.find_child! "test"
-        expect(node.records.length).to eq(2)
+        expect(node.records.length).to eq(3)
 
         # empty element
         empty_record = node.records.select {|r| r.name == "empty_key"}[0]
@@ -59,6 +59,11 @@ describe TranslateYamlGenerator::Reader::XlsxReader do
         list_record = node.records.select {|r| r.name == "list"}[0]
         expect(list_record.item 0).to eq(["1", "2", "3"])
         expect(list_record.item 1).to eq(["a", "b", "c"])
+
+        # newline
+        list_record = node.records.select {|r| r.name == "newline"}[0]
+        expect(list_record.item 0).to eq("한\n글")
+        expect(list_record.item 1).to eq("abc\ndef")
       end
     end
   end
